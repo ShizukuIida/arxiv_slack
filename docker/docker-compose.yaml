@@ -1,0 +1,11 @@
+services:
+  python:
+    image: arxiv_slack
+    build: .
+    container_name: arxiv_slack
+    working_dir: /workspace/
+    volumes:
+      - type: bind
+        source: "../"
+        target: "/workspace/"
+    tty: true
