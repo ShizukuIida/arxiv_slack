@@ -45,12 +45,12 @@ def get_summary(result):
 # def main(event, context):
 # else
 def main():
-    # Slack APIクライアントを初期化する
+    # Slack APIクライアントを初期化
     client = WebClient(token=SLACK_API_TOKEN)
     #queryを用意、今回は、三種類のqueryを用意
     query ='ti:%22 Natural Language Processing %22'
 
-    # arxiv APIで最新の論文情報を取得する
+    # arxiv APIで最新の論文情報を取得
     search = arxiv.Search(
         query=query,  # 検索クエリ
         max_results=100,  # 取得する論文数
@@ -65,12 +65,12 @@ def main():
     num_papers = 3
     results = random.sample(result_list, k=num_papers)
     
-    # 論文情報をSlackに投稿する
+    # 論文情報をSlackに投稿
     for i,result in enumerate(results):
         try:
-            # Slackに投稿するメッセージを組み立てる
+            # Slackに投稿するメッセージを組み立て
             message = "今日の論文です！ " + str(i+1) + "本目\n" + get_summary(result)
-            # Slackにメッセージを投稿する
+            # Slackにメッセージを投稿
             response = client.chat_postMessage(
                 channel=SLACK_CHANNEL,
                 text=message
