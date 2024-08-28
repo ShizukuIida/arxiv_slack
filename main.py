@@ -54,8 +54,8 @@ def main():
     search = arxiv.Search(
         query=query,  # 検索クエリ
         max_results=100,  # 取得する論文数
-        sort_by=arxiv.SortCriterion.SubmittedDate,  # 論文を投稿された日付でソートする
-        sort_order=arxiv.SortOrder.Descending,  # 新しい論文から順に取得する
+        sort_by=arxiv.SortCriterion.SubmittedDate,  # 論文を投稿された日付でソート
+        sort_order=arxiv.SortOrder.Descending,  # 新しい論文から順に取得
     )
     #searchの結果をリストに格納
     result_list = []
